@@ -92,8 +92,9 @@ def features(out_feature, out_cate):
         f.write('Package;Class;SIZE;NUI;NCLASS')
         with open(out_cate, 'r') as f_cate:
             for fea in f_cate:
-                f.write(';' + fea.replace('\n', ''))
-                l_fea.append(fea.replace('\n', ''))
+                if fea != 'SERVICE_INSIDE':
+                    f.write(';' + fea.replace('\n', ''))
+                    l_fea.append(fea.replace('\n', ''))
         f.write('\n')
 
         with open('features_raw.txt', 'r') as f_raw:
